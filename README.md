@@ -22,7 +22,7 @@ We've found ntOffset to not matter, set it to 0.
 
 The formula to generate an occlusion hash is:
 
-    `{$JenkinsHash} ^ Math.floor(({$pos.x} * 100)) ^ Math.floor(({$pos.y} * 100)) ^ Math.floor(({$pos.z} * 100)) & 0xffffffff`
+    `{$archetypeName.Hash} ^ Math.floor(({$mlo.pos.x} * 100)) ^ Math.floor(({$mlo.pos.y} * 100)) ^ Math.floor(({$mlo.pos.z} * 100)) & 0xffffffff`
 
 ##  FileName
 
@@ -71,41 +71,41 @@ Below you can find a list of examples of key generation for
 **NOTE: WHEN GETTING JOAATS - ALWAYS USE LOWER CASE!**
 
 -----------------------------------------------
-## Examples of key generation  
+##  PathNodeList > Key - Generation
+
+GTA V uses 1-5 "channels" between each room, so the actual value you'll be using in the PathNodeList.Key is whatever the result of `(StartRoomHash - EndRoomHash)` is + `1 ... 5`. That means that you'll have to create `N` amount of PathNodes of each PathNodeList.Key. We usually just create three nodes. That means that for `Outside -> Room 1` which is `2124924645`, you'll have three PathNodes, with the `PathNodeList.Keys` [`2124924646`, `2124924647`, `2124924648`].
+
+### Room definitions
+
+| Name   | Ytyp Name    | joaat |
+| :------------- | :----------: | -----------: |
+| Outside | limbo   | `joaat("outside")` =  `3086856661` |
+| Room 1   | V_66_ShopRm | `joaat("V_66_ShopRm")` = `1569794095` |
+| Room 2   | V_66_BackRm | `joaat("V_66_BackRm")` = `462608346` |
 
 >### **This is from the outside to the first room**
-> 0 [limbo] -> 1 [V_66_ShopRm] = **2124924645**
-> 0 [limbo] = joaat("outside") = **3086856661**
-> 
->   1 [V_66_ShopRm] = joaat("v_66_shoprm") = **1569794095**
-> 
->   roomHash = occlusionHash ^ 1 [V_66_ShopRm]
-> 
->             => 1690616543 ^ 1569794095
-> 
->             = **961932016**
-> 
->   PathNodeList.Key = 0 [limbo] - roomHash
-> 
->             => 3086856661 - 961932016
-> 
->             = **2124924645**
+>
+>  room1Hash = `occlusionHash ^ Room 1`
+>
+>            => 1690616543 ^ 1569794095
+>
+>            = **961932016**  
+>
+>  PathNodeList.Key = `Outside - room1Hash`
+>
+>            => 3086856661 - 961932016
+>
+>            = **2124924645**
 
 >### **This is from the first room (the actual shop) to the outside**
 > 
-> 1 [V_66_ShopRm] -> 0 [limbo] = **-2124924645**
-> 
->     1 [V_66_ShopRm] = joaat("v_66_shoprm") = **1569794095**
-> 
->     0 [limbo] = joaat("outside") = **3086856661**
-> 
->     roomHash = occlusionHash ^ 1 [V_66_ShopRm]
+>     room1Hash = `occlusionHash ^ Room 1`
 > 
 >               => 1690616543 ^ 1569794095
 > 
 >               = **961932016**
 > 
->     **PathNodeList.Key** = roomHash - 0 [limbo]
+>     **PathNodeList.Key** = `room1Hash - Outside`
 > 
 >               => 961932016 - 3086856661
 > 
@@ -113,52 +113,39 @@ Below you can find a list of examples of key generation for
 
 >### **This is from the first room to the back room**
 > 
-> 1 [V_66_ShopRm] -> 2 [V_66_BackRm] = **-1174415893**
-> 
->     1 [V_66_ShopRm] = joaat("v_66_shoprm") = **1569794095**
-> 
->     2 [V_66_BackRm] = joaat("v_66_backrm") = **462608346**
-> 
->     roomHashA = occlusionHash ^ 1 [V_66_ShopRm]
+>     room1Hash = `occlusionHash ^ Room 2`
 > 
 >               => 1690616543 ^ 1569794095
 > 
 >               = **961932016**
 > 
->     roomHashB = occlusionHash ^ 1 [V_66_BackRm]
+>     room2Hash = `occlusionHash ^ Room 2`
 > 
 >               => 1690616543 ^ 462608346
 > 
 >               = **2136347909**
 > 
->     PathNodeList.Key = roomHashA - roomHashB
+>     PathNodeList.Key = `room1Hash - room2Hash`
 > 
 >               => 961932016 - 2136347909
 > 
 >               = **-1174415893**
 
-
 >### **This is from the back room to the first room**
 > 
-> 2 [V_66_BackRm] -> 1 [V_66_ShopRm] = **1174415893**
-> 
->     2 [V_66_BackRm] = joaat("v_66_backrm") = **462608346**
-> 
->     1 [V_66_ShopRm] = joaat("v_66_shoprm") = **1569794095**
-> 
->     roomHashB = occlusionHash ^ 1 [V_66_BackRm]
+>     room2Hash = `occlusionHash ^ Room 2`
 > 
 >               => 1690616543 ^ 462608346
 > 
 >               = **2136347909**
 > 
->     roomHashA = occlusionHash ^ 1 [V_66_ShopRm]
+>     room1Hash = `occlusionHash ^ Room 1`
 > 
 >               => 1690616543 ^ 1569794095
 > 
 >               = **961932016**
 > 
->     PathNodeList.Key = roomHashB - roomHashA
+>     PathNodeList.Key = room2Hash - room1Hash
 > 
 >               => 2136347909 - 961932016
 > 
