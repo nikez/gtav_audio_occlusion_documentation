@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Dat151>
+ <Version value="25564071" />
+ <Items>
+  <Item type="AmbientZoneList" ntOffset="0">
+    <Name>ambient_zone_list</Name>
+    <Zones>
+      <Item>example_name</Item>
+    </Zones>
+  </Item>
+  <Item type="Interior" ntOffset="28734">
+   <Name>v_shop_247</Name>
+   <Unk0 value="0xAAAAA044" />
+   <Unk1 value="0xD4855127" />
+   <Unk2 value="0x00000000" />
+   <Rooms>
+    <Item>hash_A6953108</Item>
+    <Item>hash_E8036AA0</Item>
+   </Rooms>
+  </Item>
+  <Item type="AmbientZone" ntOffset="28745">
+   <Name>example_name</Name>
+   <Flags0 value="0xAA800425" />
+   <Shape>Box</Shape>
+   <Flags1 value="0x00000000" />
+   <OuterPos x="0" y="0" z="0" />
+   <OuterSize x="0" y="0" z="0" />
+   <OuterVec1 x="0" y="-3" z="0" w="0" />
+   <OuterVec2 x="1" y="1.65" z="1" w="0" />
+   <OuterAngle value="178" />
+   <OuterVec3 x="0" y="0" z="0" />
+   <InnerPos x="0" y="0" z="0" />
+   <InnerSize x="0" y="0" z="0" />
+   <InnerVec1 x="-0.5" y="0" z="0" w="0" />
+   <InnerVec2 x="0.9" y="0.75" z="1" w="0" />
+   <InnerAngle value="178" />
+   <InnerVec3 x="0" y="0" z="0" />
+   <UnkVec1 x="0" y="0" z="1" w="0" />
+   <UnkVec2 x="1" y="-1" z="-1" w="0" />
+   <UnkHash0 />
+   <UnkHash1>hash_DD84D3C7</UnkHash1>
+   <UnkVec3 x="-1" y="0" />
+   <Flags2 value="0x00000000" />
+   <Unk14 value="4" />
+   <Unk15 value="1" />
+   <Unk16 value="0" />
+   <Hashes>
+    <Item>hash_4ACAAADD</Item>
+    <Item>hash_ED816221</Item>
+   </Hashes>
+   <ExtParams />
+  </Item>
+  <Item type="InteriorRoom" ntOffset="28771">
+   <Name>hash_E8036AA0</Name>
+   <Flags0 value="0xAAAAAAAA" />
+   <MloRoom>hash_1B92D7DA</MloRoom>
+   <Hash1 />
+   <Unk02 value="0" />
+   <Unk03 value="0.35" />
+   <Unk04 value="0" />
+   <Unk05 value="0" />
+   <Unk06>hash_4D178EA4</Unk06>
+   <Unk07 value="0" />
+   <Unk08 value="0" />
+   <Unk09 value="0" />
+   <Unk10 value="0.7" />
+   <Unk11 value="0" />
+   <Unk12 value="50" />
+   <Unk13>hash_45582E60</Unk13>
+   <Unk14>hash_D4855127</Unk14>
+  </Item>
+  <Item type="InteriorRoom" ntOffset="28794">
+   <Name>hash_A6953108</Name>
+   <Flags0 value="0xAAAAAAAA" />
+   <MloRoom>hash_5D91282F</MloRoom>
+   <Hash1>hash_6B2BDB63</Hash1>
+   <Unk02 value="0" />
+   <Unk03 value="0.5" />
+   <Unk04 value="0" />
+   <Unk05 value="0" />
+   <Unk06>hash_4D178EA4</Unk06>
+   <Unk07 value="0" />
+   <Unk08 value="0" />
+   <Unk09 value="0" />
+   <Unk10 value="0.55" />
+   <Unk11 value="0" />
+   <Unk12 value="50" />
+   <Unk13>hash_D8D37FA8</Unk13>
+   <Unk14>hash_D4855127</Unk14>
+  </Item>
+ </Items>
+</Dat151>
