@@ -50,6 +50,12 @@ Range from `0.0` to `1.0`.
 
 Entity hash, of the door, window, etc.
 
+##
+If there is no objects attached then the PortalEntityList needs to be empty.
+
+
+
+
 ##  PathNodeList
 
 The PathNodeList is used describe audio paths between two rooms. That can be rooms directly connected such as `Room1 -> Portal0 -> Room2` (direct link) or rooms connected through multiple rooms and portals like `Room1 -> Portal0 -> Room2 -> Portal1 -> Room3` (bridge link). We'll call each entry in this list a `PathNode`.  
@@ -276,6 +282,8 @@ For each room you have in your interior you have to create an entry
 ```
 
 You can tinker with the values, we haven't had the time to note down what they do exactly.
+
+**Unk04** Reverb?
 
 **Unk06** is the "room sound" or whatever (tone master?)
 
