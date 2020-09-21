@@ -50,49 +50,10 @@ Range from `0.0` to `1.0`.
 
 Entity hash, of the door, window, etc.
 
-## Ymt full entries
------------------------------------------------
-Example of a ymt entry with 2 objects attached to the portal. 
-```
-<Item>
-   <InteriorProxyHash value="1690616543" />
-   <PortalIdx value="0" />
-   <RoomIdx value="1" />
-   <DestInteriorHash value="1690616543" />
-   <DestRoomIdx value="0" /> 
-   <PortalEntityList itemType="hash_F6624EF9">
-    <Item>
-     <LinkType value="1" /> link type always seems to be 1 if there is an object attached
-     <MaxOcclusion value="0.7" />
-     <hash_E3674005 value="997554217" /> hash of the entity
-     <IsDoor value="true" /> 
-     <IsGlass value="true" />
-    </Item>
-    <Item>
-     <LinkType value="1" />
-     <MaxOcclusion value="0.7" />
-     <hash_E3674005 value="1196685123" />
-     <IsDoor value="true" /> 
-     <IsGlass value="true" />
-    </Item>
-   </PortalEntityList>
-  </Item>
-  ```
+##
+If there is no objects attached then the PortalEntityList needs to be empty.
 
-  example of a ymt entry with no object attached to the portal.
-  ```
-    <Item>
-     <InteriorProxyHash value="1690616543" />
-     <PortalIdx value="1" />
-     <RoomIdx value="1" />
-     <DestInteriorHash value="1690616543" />
-     <DestRoomIdx value="2" />
-     <PortalEntityList itemType="hash_F6624EF9" />
-    </Item>
-```
-This does not take into account the PortalInfoLists at all.
 
------------------------------------------------
 
 
 ##  PathNodeList
