@@ -285,6 +285,8 @@ You can tinker with the values, we haven't had the time to note dow
 
 **Unk04** Reverb?
 
+**Unk05** Echo
+
 **Unk06** is the "room sound" or whatever (tone master?)
 
 **Unk13** is the static emitter hash
