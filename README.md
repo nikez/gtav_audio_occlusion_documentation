@@ -20,9 +20,11 @@ We've found ntOffset to not matter, set it to 0.
 
 ##  OcclusionHash
 
-The formula to generate an occlusion hash is:
+The formula to generate an unsigned occlusion hash is:
 
-    `{$archetypeName.Hash} ^ Math.floor(({$mlo.pos.x} * 100)) ^ Math.floor(({$mlo.pos.y} * 100)) ^ Math.floor(({$mlo.pos.z} * 100)) & 0xffffffff`
+    `{$archetypeName.Hash} ^ ({$mlo.pos.x} * 100) ^ ({$mlo.pos.y} * 100) ^ ({$mlo.pos.z} * 100)`
+
+Then use whatever to get it signed.
 
 ##  FileName
 
